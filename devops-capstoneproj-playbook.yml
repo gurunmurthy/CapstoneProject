@@ -1,0 +1,13 @@
+---
+- hosts: k8s-master
+  gather_facts: no
+  tasks:
+  - name: Remove any existing Deployments & services
+    command: kubectl delete deployment my-app-deployment --ignore-not-found
+    command: kubectl delete service my-app-nodeport --ignore-not-found
+
+  - name: Deploy container to K8s
+    command: kubectl apply -f /home/ubuntu/jenkins/workspace/DevOpsCapstoneProject-PipelineJob/deploy.yml
+
+  - name: Expose the deployment via Nodeport Service
+    command: kubectl apply -f /home/ubuntu/jenkins/workspace/DevOpsCapstoneProject-PipelineJob/service.yml
