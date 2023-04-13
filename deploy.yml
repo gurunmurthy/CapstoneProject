@@ -15,5 +15,6 @@ spec:
       containers:
       - name: my-app-container
         image: gurunmurthy/capstoneprojapp
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
