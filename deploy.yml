@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: gurunmurthy/capstoneprojapp
+        image: gurunmurthy/capstoneprojapp:latest
         ports:
         - containerPort: 80
